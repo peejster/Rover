@@ -1,2 +1,2 @@
 # Maker-Projects
-This repository houses the source code for my projects.
+This repository contains the source code for my projects.

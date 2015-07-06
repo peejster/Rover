@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>WIN-ILSFRUCFFDC</Machine>
+    <WindowsUser>prasa</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <SolutionConfiguration>Release|ARM</SolutionConfiguration>
+    <PackageArchitecture>arm</PackageArchitecture>
+    <PackageIdentityName>6b5c196c-a673-4993-b043-b8d5b7df91b8</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\api-ms-win-crt-convert-l1-1-0.dll">
+      <PackagePath>api-ms-win-crt-convert-l1-1-0.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\api-ms-win-crt-heap-l1-1-0.dll">
+      <PackagePath>api-ms-win-crt-heap-l1-1-0.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\api-ms-win-crt-math-l1-1-0.dll">
+      <PackagePath>api-ms-win-crt-math-l1-1-0.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\api-ms-win-crt-runtime-l1-1-0.dll">
+      <PackagePath>api-ms-win-crt-runtime-l1-1-0.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\api-ms-win-crt-stdio-l1-1-0.dll">
+      <PackagePath>api-ms-win-crt-stdio-l1-1-0.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\api-ms-win-crt-string-l1-1-0.dll">
+      <PackagePath>api-ms-win-crt-string-l1-1-0.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\ApplicationInsights.config">
+      <PackagePath>ApplicationInsights.config</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Assets\WideLogo.scale-100.png">
+      <PackagePath>Assets\WideLogo.scale-100.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\clrcompression.dll">
+      <PackagePath>clrcompression.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\mrt100_app.dll">
+      <PackagePath>mrt100_app.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Rover.dll">
+      <PackagePath>Rover.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\Rover.exe">
+      <PackagePath>Rover.exe</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\ucrtbase.dll">
+      <PackagePath>ucrtbase.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\vcruntime140_app.dll">
+      <PackagePath>vcruntime140_app.dll</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\_Resources\0.rsrc">
+      <PackagePath>_Resources\0.rsrc</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\_Resources\1.rsrc">
+      <PackagePath>_Resources\1.rsrc</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\_Resources\2.rsrc">
+      <PackagePath>_Resources\2.rsrc</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\bin\ARM\Release\ilc\_Resources\index.txt">
+      <PackagePath>_Resources\index.txt</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

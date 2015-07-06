@@ -1,0 +1,9 @@
+/ignoreAccessChecks
+/metadataFile "C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\ILTransformed\Rover.metadata"
+/reflectionMetadataAssemblyName "System.Private.CoreLib"
+/o
+/sharedGenerics
+/ilmergeinfo "C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\ILTransformed\Rover.csv"
+/sharedGenericsMode StandardHeuristics
+/in "C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\ILTransformed\Rover.ilexe"
+/out "C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\MDIL\Rover.mdilexe"

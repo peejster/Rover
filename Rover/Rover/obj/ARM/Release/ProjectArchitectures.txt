@@ -1,0 +1,1 @@
+C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\Rover.csproj;arm

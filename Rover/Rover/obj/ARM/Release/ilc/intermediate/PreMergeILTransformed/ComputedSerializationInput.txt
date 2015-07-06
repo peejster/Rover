@@ -1,0 +1,2 @@
+"/t:System.ServiceModel.ExceptionDetail,System.ServiceModel.Primitives,dcs"
+"/t:System.Object,System.Runtime,dcs"

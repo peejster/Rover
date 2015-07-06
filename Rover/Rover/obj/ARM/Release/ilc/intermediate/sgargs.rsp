@@ -1,0 +1,10 @@
+/out:"C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\SgGenerated\\"
+/int:"C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\\"
+/ref:"C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed\\"
+/ref:"C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\in\\"
+/ref:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Facades\\"
+/ref:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\IL\\"
+/ref:"C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\in\WinMetadata\\"
+/ca:System.Private.CoreLib
+/mscorlib:"C:\Program Files (x86)\MSBuild\Microsoft\.NetNative\ARM\ilc\lib\Facades\mscorlib.dll"
+"@C:\Users\prasa\Desktop\My Projects\RPi Win10 Core\Rover\Rover\obj\ARM\Release\ilc\intermediate\PreMergeILTransformed\ComputedSerializationInput.txt"
