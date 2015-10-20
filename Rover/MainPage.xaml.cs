@@ -52,21 +52,30 @@ namespace Rover
 
             while (!_finish)
             {
-                driver.MoveForward();
+                try
+                {
+                    driver.MoveForward();
 
-                await Task.Delay(200);
+                    await Task.Delay(200);
 
-                var distance = await ultrasonicDistanceSensor.GetDistanceInCmAsync(1000);
-                WriteData("Forward", distance);
-                if (distance > 35.0 || distance == 0)
-                    continue;
+                    var distance = await ultrasonicDistanceSensor.GetDistanceInCmAsync(1000);
+                    WriteData("Forward", distance);
+                    if (distance > 35.0 || distance == 0)
+                        continue;
 
-                WriteLog($"Obstacle found at {distance} cm or less. Turning right");
-                WriteData("Turn Right", distance);
+                    WriteLog($"Obstacle found at {distance} cm or less. Turning right");
+                    WriteData("Turn Right", distance);
 
-                await driver.TurnRightAsync();
+                    await driver.TurnRightAsync();
 
-                WriteLog("Moving forward");
+                    WriteLog("Moving forward");
+                }
+                catch (Exception ex)
+                {
+                    WriteLog(ex.Message);
+                    driver.Stop();
+                    WriteData("Stop", -1);
+                }
             }
         }
 
@@ -89,4 +98,3 @@ namespace Rover
         }
     }
 }
-

@@ -11,6 +11,7 @@ namespace Rover
         private readonly GpioPin _gpioPinTrig;
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly GpioPin _gpioPinEcho;
+        bool _init;
 
         public UltrasonicDistanceSensor(int trigGpioPin, int echoGpioPin)
         {
@@ -21,12 +22,19 @@ namespace Rover
             _gpioPinTrig.SetDriveMode(GpioPinDriveMode.Output);
             _gpioPinEcho.SetDriveMode(GpioPinDriveMode.Input);
             _gpioPinTrig.Write(GpioPinValue.Low);
-
         }
 
-        public Task<double> GetDistanceInCmAsync(int timeoutInMilliseconds)
+        public async Task<double> GetDistanceInCmAsync(int timeoutInMilliseconds)
         {
-            return Task.Run(() =>
+            if(!_init)
+            {
+                //first time ensure the pin is low and wait two seconds
+                _gpioPinTrig.Write(GpioPinValue.Low);
+                await Task.Delay(2000);
+                _init = true;
+            }
+
+            return await Task.Run(() =>
             {
                 double distance = double.MaxValue;
                 // turn on the pulse
@@ -34,7 +42,7 @@ namespace Rover
                 Task.Delay(TimeSpan.FromTicks(100)).Wait();
                 _gpioPinTrig.Write(GpioPinValue.Low);
 
-                SpinWait.SpinUntil(()=> { return _gpioPinEcho.Read() != GpioPinValue.Low; });
+                SpinWait.SpinUntil(()=> { return _gpioPinEcho.Read() != GpioPinValue.Low; },2000);
                 var stopwatch = Stopwatch.StartNew();
                 while (stopwatch.ElapsedMilliseconds < timeoutInMilliseconds && _gpioPinEcho.Read() == GpioPinValue.High)
                 {
