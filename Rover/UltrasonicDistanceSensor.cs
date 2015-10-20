@@ -42,14 +42,17 @@ namespace Rover
                 Task.Delay(TimeSpan.FromTicks(100)).Wait();
                 _gpioPinTrig.Write(GpioPinValue.Low);
 
-                SpinWait.SpinUntil(()=> { return _gpioPinEcho.Read() != GpioPinValue.Low; }, timeoutInMilliseconds);
-                var stopwatch = Stopwatch.StartNew();
-                while (stopwatch.ElapsedMilliseconds < timeoutInMilliseconds && _gpioPinEcho.Read() == GpioPinValue.High)
+                if (SpinWait.SpinUntil(() => { return _gpioPinEcho.Read() != GpioPinValue.Low; }, timeoutInMilliseconds))
                 {
-                    distance = stopwatch.Elapsed.TotalSeconds * 17150;
+                    var stopwatch = Stopwatch.StartNew();
+                    while (stopwatch.ElapsedMilliseconds < timeoutInMilliseconds && _gpioPinEcho.Read() == GpioPinValue.High)
+                    {
+                        distance = stopwatch.Elapsed.TotalSeconds * 17150;
+                    }
+                    stopwatch.Stop();
+                    return distance;
                 }
-                stopwatch.Stop();
-                return distance;
+                throw new TimeoutException("Could not read from sensor");
             });
         }
     }
