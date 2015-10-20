@@ -85,7 +85,7 @@ namespace Rover
         {
             await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
-                Log.Text += $"{text} |";
+                Log.Text += $"{text} | ";
             });
         }
 

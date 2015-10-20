@@ -18,10 +18,6 @@
             </Grid>
             <TextBlock x:Name="Distance" FontWeight="Bold" FontSize="48" TextAlignment="Center">0.0</TextBlock>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <Button Margin="20" Content="⏵" Height="150" Width="150" FontSize="70" Background="#FF6D73FF" BorderBrush="Black" BorderThickness="5,4,5,5" Padding="0"/>
-            <Button Margin="20" Content="⏹" Height="150" Width="150" FontSize="70" Background="#FF6D73FF" BorderBrush="Black" BorderThickness="5,4,5,5" Padding="0"/>
-        </StackPanel>
-        <TextBlock Padding="20" x:Name="Log" TextWrapping="WrapWholeWords" MaxLines="10000000" Grid.Row="2"></TextBlock>
+        <TextBlock x:Name="Log" TextWrapping="WrapWholeWords" MaxLines="10000000" Grid.Row="2"></TextBlock>
     </Grid>
 </Page>
