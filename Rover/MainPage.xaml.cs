@@ -47,34 +47,55 @@ namespace Rover
         {
             var driver = new TwoMotorsDriver(new Motor(27, 22), new Motor(5, 6));
             var ultrasonicDistanceSensor = new UltrasonicDistanceSensor(23, 24);
+            await ultrasonicDistanceSensor.InitAsync();
 
-            await WriteLog("Moving forward");
+            WriteLog("Moving forward");
 
             while (!_finish)
             {
-                driver.MoveForward();
+                try
+                {
+                    driver.MoveForward();
 
-                await Task.Delay(200);
+                    await Task.Delay(200);
 
-                var distance = await ultrasonicDistanceSensor.GetDistanceInCmAsync(1000);
-                if (distance > 35.0)
-                    continue;
+                    var distance = await ultrasonicDistanceSensor.GetDistanceInCmAsync(1000);
+                    WriteData("Forward", distance);
+                    if (distance > 35.0)
+                        continue;
 
-                await WriteLog($"Obstacle found at {distance} cm or less. Turning right");
+                    WriteLog($"Obstacle found at {distance:F2} cm or less. Turning right");
+                    WriteData("Turn Right", distance);
 
-                await driver.TurnRightAsync();
+                    await driver.TurnRightAsync();
 
-                await WriteLog("Moving forward");
+                    WriteLog("Moving forward");
+                }
+                catch (Exception ex)
+                {
+                    WriteLog(ex.Message);
+                    driver.Stop();
+                    WriteData("Stop", -1);
+                }
             }
         }
 
-        private async Task WriteLog(string text)
+        private async void WriteLog(string text)
         {
             await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 Log.Text += $"{text} | ";
             });
         }
+
+        private async void WriteData(string move, double distance)
+        {
+            await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                System.Diagnostics.Debug.WriteLine($"{move} {distance} cm");
+                Direction.Text = move;
+                Distance.Text = $"{distance:F2} cm";
+            });
+        }
     }
 }
-

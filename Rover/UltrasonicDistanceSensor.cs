@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.Devices.Gpio;
 
@@ -10,14 +11,10 @@ namespace Rover
         private readonly GpioPin _gpioPinTrig;
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly GpioPin _gpioPinEcho;
-        private readonly Stopwatch _stopwatch;
-
-        private double? _distance; 
+        bool _init;
 
         public UltrasonicDistanceSensor(int trigGpioPin, int echoGpioPin)
         {
-            _stopwatch  = new Stopwatch();
-
             var gpio = GpioController.GetDefault();
 
             _gpioPinTrig = gpio.OpenPin(trigGpioPin);
@@ -25,42 +22,41 @@ namespace Rover
             _gpioPinTrig.SetDriveMode(GpioPinDriveMode.Output);
             _gpioPinEcho.SetDriveMode(GpioPinDriveMode.Input);
             _gpioPinTrig.Write(GpioPinValue.Low);
-
-            _gpioPinEcho.ValueChanged += GpioPinEcho_ValueChanged;
-        }
-
-        private void GpioPinEcho_ValueChanged(GpioPin sender, GpioPinValueChangedEventArgs args)
-        {
-            _distance = _stopwatch.ElapsedMilliseconds * 34.3 / 2.0;
         }
 
         public async Task<double> GetDistanceInCmAsync(int timeoutInMilliseconds)
         {
-            _distance = null;
-            try
+            return await Task.Run(() =>
             {
-                _stopwatch.Reset();
-
+                double distance = double.MaxValue;
                 // turn on the pulse
                 _gpioPinTrig.Write(GpioPinValue.High);
-                await Task.Delay(TimeSpan.FromMilliseconds(10));
+                Task.Delay(TimeSpan.FromTicks(100)).Wait();
                 _gpioPinTrig.Write(GpioPinValue.Low);
 
-                _stopwatch.Start();
-                for (var i = 0; i < timeoutInMilliseconds/100; i++)
+                if (SpinWait.SpinUntil(() => { return _gpioPinEcho.Read() != GpioPinValue.Low; }, timeoutInMilliseconds))
                 {
-                    if (_distance.HasValue)
-                        return _distance.Value;
-
-                    await Task.Delay(TimeSpan.FromMilliseconds(100));
+                    var stopwatch = Stopwatch.StartNew();
+                    while (stopwatch.ElapsedMilliseconds < timeoutInMilliseconds && _gpioPinEcho.Read() == GpioPinValue.High)
+                    {
+                        distance = stopwatch.Elapsed.TotalSeconds * 17150;
+                    }
+                    stopwatch.Stop();
+                    return distance;
                 }
-            }
-            finally
-            {
-                _stopwatch.Stop();
-            }
-            return double.MaxValue;
+                throw new TimeoutException("Could not read from sensor");
+            });
         }
 
+        public async Task InitAsync()
+        {
+            if (!_init)
+            {
+                //first time ensure the pin is low and wait two seconds
+                _gpioPinTrig.Write(GpioPinValue.Low);
+                await Task.Delay(2000);
+                _init = true;
+            }
+        }
     }
 }
