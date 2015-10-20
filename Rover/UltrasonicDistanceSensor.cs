@@ -26,14 +26,6 @@ namespace Rover
 
         public async Task<double> GetDistanceInCmAsync(int timeoutInMilliseconds)
         {
-            if(!_init)
-            {
-                //first time ensure the pin is low and wait two seconds
-                _gpioPinTrig.Write(GpioPinValue.Low);
-                await Task.Delay(2000);
-                _init = true;
-            }
-
             return await Task.Run(() =>
             {
                 double distance = double.MaxValue;
@@ -54,6 +46,17 @@ namespace Rover
                 }
                 throw new TimeoutException("Could not read from sensor");
             });
+        }
+
+        public async Task InitAsync()
+        {
+            if (!_init)
+            {
+                //first time ensure the pin is low and wait two seconds
+                _gpioPinTrig.Write(GpioPinValue.Low);
+                await Task.Delay(2000);
+                _init = true;
+            }
         }
     }
 }

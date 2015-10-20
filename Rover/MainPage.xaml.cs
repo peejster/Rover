@@ -47,6 +47,7 @@ namespace Rover
         {
             var driver = new TwoMotorsDriver(new Motor(27, 22), new Motor(5, 6));
             var ultrasonicDistanceSensor = new UltrasonicDistanceSensor(23, 24);
+            await ultrasonicDistanceSensor.InitAsync();
 
             WriteLog("Moving forward");
 
@@ -63,7 +64,7 @@ namespace Rover
                     if (distance > 35.0)
                         continue;
 
-                    WriteLog($"Obstacle found at {distance} cm or less. Turning right");
+                    WriteLog($"Obstacle found at {distance:F2} cm or less. Turning right");
                     WriteData("Turn Right", distance);
 
                     await driver.TurnRightAsync();
@@ -93,7 +94,7 @@ namespace Rover
             {
                 System.Diagnostics.Debug.WriteLine($"{move} {distance} cm");
                 Direction.Text = move;
-                Distance.Text = $"{distance} cm";
+                Distance.Text = $"{distance:F2} cm";
             });
         }
     }
