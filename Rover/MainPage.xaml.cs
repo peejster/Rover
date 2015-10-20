@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Threading.Tasks;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -93,7 +94,17 @@ namespace Rover
             await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
             {
                 System.Diagnostics.Debug.WriteLine($"{move} {distance} cm");
-                Direction.Text = move;
+                ForwardImage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                TurnRightImage.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                switch (move)
+                {
+                    case "Forward":
+                        ForwardImage.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                        break;
+                    case "Turn Right":
+                        TurnRightImage.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                        break;
+                }
                 Distance.Text = $"{distance:F2} cm";
             });
         }
