@@ -42,7 +42,7 @@ namespace Rover
                 Task.Delay(TimeSpan.FromTicks(100)).Wait();
                 _gpioPinTrig.Write(GpioPinValue.Low);
 
-                SpinWait.SpinUntil(()=> { return _gpioPinEcho.Read() != GpioPinValue.Low; },2000);
+                SpinWait.SpinUntil(()=> { return _gpioPinEcho.Read() != GpioPinValue.Low; }, timeoutInMilliseconds);
                 var stopwatch = Stopwatch.StartNew();
                 while (stopwatch.ElapsedMilliseconds < timeoutInMilliseconds && _gpioPinEcho.Read() == GpioPinValue.High)
                 {
