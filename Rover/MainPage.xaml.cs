@@ -60,7 +60,7 @@ namespace Rover
 
                     var distance = await ultrasonicDistanceSensor.GetDistanceInCmAsync(1000);
                     WriteData("Forward", distance);
-                    if (distance > 35.0 || distance == 0)
+                    if (distance > 35.0)
                         continue;
 
                     WriteLog($"Obstacle found at {distance} cm or less. Turning right");
