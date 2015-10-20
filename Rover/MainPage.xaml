@@ -12,10 +12,7 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Grid Height="150" Width="200">
-                <Image x:Name="ForwardImage" Height="150" Width="200" Visibility="Collapsed" Source="Assets/up arrow.jpg" />
-                <Image x:Name="TurnRightImage" Height="150" Width="200" Visibility="Collapsed" Source="Assets/right arrow.jpg" />
-            </Grid>
+            <TextBlock x:Name="Direction" FontWeight="Bold" FontSize="48" TextAlignment="Center">Forward</TextBlock>
             <TextBlock x:Name="Distance" FontWeight="Bold" FontSize="48" TextAlignment="Center">0.0</TextBlock>
         </StackPanel>
         <TextBlock x:Name="Log" TextWrapping="WrapWholeWords" MaxLines="10000000" Grid.Row="2"></TextBlock>
