@@ -6,15 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock x:Name="Direction" FontWeight="Bold" FontSize="48" TextAlignment="Center">Forward</TextBlock>
-            <TextBlock x:Name="Distance" FontWeight="Bold" FontSize="48" TextAlignment="Center">0.0</TextBlock>
-        </StackPanel>
-        <TextBlock x:Name="Log" TextWrapping="WrapWholeWords" MaxLines="10000000" Grid.Row="2"></TextBlock>
+        <TextBlock x:Name="Log" TextWrapping="WrapWholeWords" MaxLines="10000000"></TextBlock>
     </Grid>
 </Page>

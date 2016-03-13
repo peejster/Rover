@@ -40,9 +40,10 @@ namespace Rover
             _leftMotor.MoveForward();
             _rightMotor.MoveBackward();
 
-            await Task.Delay(TimeSpan.FromMilliseconds(200));
+            await Task.Delay(TimeSpan.FromMilliseconds(250));
 
-            Stop();
+            _leftMotor.Stop();
+            _rightMotor.Stop();
         }
 
         public async Task TurnLeftAsync()
@@ -50,11 +51,10 @@ namespace Rover
             _leftMotor.MoveBackward();
             _rightMotor.MoveForward();
 
-            await Task.Delay(TimeSpan.FromMilliseconds(200));
+            await Task.Delay(TimeSpan.FromMilliseconds(250));
 
-            Stop();
+            _leftMotor.Stop();
+            _rightMotor.Stop();
         }
-
-       
     }
 }
